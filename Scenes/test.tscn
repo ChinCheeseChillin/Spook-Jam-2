@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://d4derx1adjmw5"]
+
+[ext_resource type="PackedScene" uid="uid://cg6cjabuprr8u" path="res://Scenes/charac.tscn" id="1_8od7v"]
+[ext_resource type="Texture2D" uid="uid://ccd7du5e2urmr" path="res://Assets/Bugger_Still_Front.png" id="1_lc1oi"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o8y2f"]
+distance = -1.5000305
+
+[node name="Node2D" type="Node2D" unique_id=1718691652]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1736085177]
+position = Vector2(358.49994, 170.49997)
+
+[node name="BuggerStillFront" type="Sprite2D" parent="StaticBody2D" unique_id=279879581]
+position = Vector2(27.500061, 40.50003)
+texture = ExtResource("1_lc1oi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=23500024]
+position = Vector2(36, 12)
+shape = SubResource("WorldBoundaryShape2D_o8y2f")
+
+[node name="CharacterBody2D" parent="." unique_id=1033624582 instance=ExtResource("1_8od7v")]
+position = Vector2(348, -84)
