@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bvdk8oq6i3i1v" path="res://Scripts/cat script.gd" id="1_6rxiq"]
 [ext_resource type="Texture2D" uid="uid://gyaog3ri0nki" path="res://Assets/Skeleton_Kitty.png" id="2_6rxiq"]
-[ext_resource type="Texture2D" uid="uid://ds18exogh4wom" path="res://icon.svg" id="2_fv1sl"]
+[ext_resource type="Texture2D" uid="uid://dwpxu4i5ea7em" path="res://Assets/Untitled145_20261011001352.png" id="3_46xjo"]
+[ext_resource type="Texture2D" uid="uid://cj3jawwvgdy4w" path="res://Assets/Untitled145_20261011001355.png" id="4_jrslk"]
+[ext_resource type="Texture2D" uid="uid://dd8t42mjreq52" path="res://Assets/Untitled145_20261011001357.png" id="5_df7vq"]
+[ext_resource type="Texture2D" uid="uid://b71geame2qysd" path="res://Assets/Untitled145_20261011001401.png" id="6_du6lo"]
+[ext_resource type="Texture2D" uid="uid://bv7gbrurbkyaf" path="res://Assets/Untitled145_20261011001405.png" id="7_acxlp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8y2f"]
 size = Vector2(103.49999, 85)
@@ -50,10 +54,39 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_d40b0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_46xjo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jrslk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_df7vq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_du6lo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_acxlp")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"default",
+"speed": 30.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d40b0"]
 size = Vector2(78, 85.5)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=752942470]
+[node name="Cat" type="CharacterBody2D" unique_id=752942470]
 script = ExtResource("1_6rxiq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=728007436]
@@ -71,6 +104,15 @@ scale = Vector2(0.28571427, 0.28571427)
 collision_layer = 16
 collision_mask = 16
 
+[node name="Attack Animation" type="AnimatedSprite2D" parent="Cat Texture/Attack Hitbox" unique_id=2043723770]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(95.00001, -3.999999)
+scale = Vector2(0.26640624, 0.2886719)
+sprite_frames = SubResource("SpriteFrames_d40b0")
+frame = 6
+frame_progress = 1.0
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Cat Texture/Attack Hitbox" unique_id=681894747]
 position = Vector2(91.99999, -5.999999)
 scale = Vector2(0.99999994, 0.99999994)
@@ -79,17 +121,12 @@ shape = SubResource("RectangleShape2D_d40b0")
 [node name="Damage Timer" type="Timer" parent="Cat Texture/Attack Hitbox" unique_id=1566272024]
 one_shot = true
 
-[node name="Icon" type="Sprite2D" parent="Cat Texture/Attack Hitbox" unique_id=355308116]
-position = Vector2(90, -7)
-scale = Vector2(0.65625006, 0.703125)
-texture = ExtResource("2_fv1sl")
-
 [node name="Damage Hitbox" type="Area2D" parent="." unique_id=1433780870]
 scale = Vector2(0.99999994, 0.99999994)
 collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Damage Hitbox" unique_id=198607376]
-position = Vector2(7.6293945e-06, -7.0000005)
+position = Vector2(4.5474735e-13, -7.0000005)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_o8y2f")

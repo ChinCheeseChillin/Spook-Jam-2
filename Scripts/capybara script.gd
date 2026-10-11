@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const SPEED = 275.0
 const JUMP_VELOCITY = -400.0
+const baseAttack = 1
+var peace = 0
 
 @onready var capybara: AnimatedSprite2D = $"Capybara Texture"
 @onready var Damage_Hitbox: Area2D = $"Damage Hitbox"
@@ -10,16 +12,15 @@ const JUMP_VELOCITY = -400.0
 @onready var Damage_Timer: Timer = $"Damage Timer"
 
 
-@export var HP = 5
 
 func _ready() -> void:
 	pass
 	#hide()
 
 func hurted(damage):
-	HP -= damage
-	print(HP, "owie")
-	if HP <= 0:
+	Level.CapyHP -= damage
+	print(Level.CapyHP, "owie")
+	if Level.CapyHP <= 0:
 		dead()
 
 func dead():
@@ -28,6 +29,12 @@ func dead():
 
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_pressed("floaton") and Level.Capypeacemeter > 0:
+		peace = 1
+		Level.Capypeacemeter -= Level.CapyConsumemeter
+		print(Level.Capypeacemeter)
+	else:
+		peace = 0
 	
 	if Input.is_action_just_pressed("attack"):
 		print("attack")
@@ -35,9 +42,9 @@ func _physics_process(delta: float) -> void:
 			print(body)
 			if body.has_method("TakeDamage"):
 				print("hurt")
-				body.TakeDamage(1)
+				body.TakeDamage(baseAttack)
 
-	if Damage_Hitbox.get_overlapping_bodies() != [] and Damage_Timer.time_left == 0:
+	if Damage_Hitbox.get_overlapping_bodies() != [] and Damage_Timer.time_left == 0 and peace == 0:
 		hurted(1)
 		Damage_Timer.start()
 	
