@@ -5,15 +5,14 @@ extends CharacterBody2D
 @onready var Attack_Hitbox: Area2D = $"Cat Texture/Attack Hitbox"
 @onready var Damage_Timer: Timer = $"Cat Texture/Attack Hitbox/Damage Timer"
 @onready var attack_animation: AnimatedSprite2D = $"Cat Texture/Attack Hitbox/Attack Animation"
-@onready var follow_path = get_parent()
+
 
 const SPEED = 350.0
 const JUMP_VELOCITY = -600.0
 
 var boost = 0
 const baseAttack = 1
-var autoplay = false
-var done = false
+
 
 func _ready() -> void:
 	pass
@@ -30,15 +29,7 @@ func dead():
 	queue_free()
 
 func _physics_process(delta: float) -> void:
-	if autoplay == true:
-		movement(delta)
-		if velocity.x != 0:
-			cat.play()
-		else:
-			cat.stop()
-			cat.frame = 0
-		if follow_path.get_progress_ratio() == 1.0:
-			done = true
+	
 	if Input.is_action_just_pressed("floaton") and Level.Catdoublemeter > 0 and boost == 0:
 		boost = 1
 		Level.Catdoublemeter -= Level.CatConsumemeter
@@ -92,5 +83,3 @@ func _physics_process(delta: float) -> void:
 	elif velocity.x < 0  and cat.scale.x > 0:
 		cat.scale.x = -cat.scale.x
 	move_and_slide()
-func movement(delta):
-	follow_path.set_progress(follow_path.get_progress() + SPEED * delta)
