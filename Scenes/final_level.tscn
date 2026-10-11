@@ -1,0 +1,83 @@
+[gd_scene format=4 uid="uid://b4mx8airxadea"]
+
+[ext_resource type="Texture2D" uid="uid://ds18exogh4wom" path="res://icon.svg" id="1_lr3dp"]
+[ext_resource type="Script" uid="uid://wost4iejbw4u" path="res://Scripts/final_level.gd" id="1_mu3l5"]
+[ext_resource type="Texture2D" uid="uid://cmiteoom4onxh" path="res://Assets/Untitled152_20261011160314.png" id="3_8elp7"]
+[ext_resource type="Texture2D" uid="uid://dbe026tnft2e7" path="res://Assets/Untitled144_20261011122521.png" id="4_av7ct"]
+[ext_resource type="PackedScene" uid="uid://mhtlm1ergemm" path="res://Scenes/Chinchilla Boss.tscn" id="5_ake6q"]
+[ext_resource type="PackedScene" uid="uid://cg6cjabuprr8u" path="res://Scenes/Fish.tscn" id="6_av7ct"]
+[ext_resource type="PackedScene" uid="uid://c2mt1n2j360ci" path="res://Scenes/Cat.tscn" id="7_hv6ci"]
+[ext_resource type="PackedScene" uid="uid://by1hfa0q0wgdy" path="res://Scenes/Capybara.tscn" id="8_jydje"]
+[ext_resource type="PackedScene" uid="uid://cxgb5jutbbg56" path="res://Scenes/Firebawl.tscn" id="9_jydje"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hv6ci"]
+resource_name = "Ground"
+texture = ExtResource("4_av7ct")
+0:0/size_in_atlas = Vector2i(48, 9)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-384, -72, -384, 72, 384, 72, 384, -72)
+
+[sub_resource type="TileSet" id="TileSet_jydje"]
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_hv6ci")
+
+[node name="Final Level" type="Node2D" unique_id=1010043163]
+script = ExtResource("1_mu3l5")
+
+[node name="Win Game" type="Button" parent="." unique_id=2100544536]
+offset_left = 3927.0
+offset_top = -56.0
+offset_right = 4167.0
+offset_bottom = 80.0
+text = "Win da game"
+icon = ExtResource("1_lr3dp")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=984243496]
+
+[node name="Untitled15220261011160314" type="Sprite2D" parent="." unique_id=486234778]
+position = Vector2(-207, -128)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_8elp7")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1864239537]
+tile_map_data = PackedByteArray("AAD//xAAAAAAAAAAAAAvABAAAAAAAAAAAABfABAAAAAAAAAAAAC7ABAAAAAAAAAAAAAGARAAAAAAAAAAAACcABAAAAAAAAAAAADNABAAAAAAAAAAAAB+ABAAAAAAAAAAAADnABAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_jydje")
+
+[node name="Chinchilla" parent="." unique_id=24595418 instance=ExtResource("5_ake6q")]
+position = Vector2(3744, 95)
+
+[node name="Fish" parent="." unique_id=1033624582 instance=ExtResource("6_av7ct")]
+position = Vector2(-219, 119)
+
+[node name="Cat" parent="." unique_id=752942470 instance=ExtResource("7_hv6ci")]
+position = Vector2(-212, 124)
+
+[node name="Capybara" parent="." unique_id=1526808174 instance=ExtResource("8_jydje")]
+position = Vector2(-200, 124)
+
+[node name="Node2D" parent="." unique_id=664325411 instance=ExtResource("9_jydje")]
+position = Vector2(431, 584)
+
+[node name="Node2D2" parent="." unique_id=2095262780 instance=ExtResource("9_jydje")]
+position = Vector2(1251, 253)
+
+[node name="Node2D3" parent="." unique_id=723646907 instance=ExtResource("9_jydje")]
+position = Vector2(2948, 248)
+
+[node name="Node2D4" parent="." unique_id=1555791572 instance=ExtResource("9_jydje")]
+position = Vector2(1946, 209)
+scale = Vector2(-1, 1)
+
+[node name="Node2D5" parent="." unique_id=1265587083 instance=ExtResource("9_jydje")]
+position = Vector2(1448, 248)
+scale = Vector2(-1, 1)
+
+[node name="Node2D6" parent="." unique_id=50615656 instance=ExtResource("9_jydje")]
+position = Vector2(3473, 175)
+
+[node name="Node2D7" parent="." unique_id=457068561 instance=ExtResource("9_jydje")]
+position = Vector2(3604, 317)
+speed = 200
+
+[connection signal="pressed" from="Win Game" to="." method="_on_win_game_pressed"]

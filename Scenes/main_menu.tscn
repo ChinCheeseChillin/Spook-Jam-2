@@ -1,40 +1,36 @@
 [gd_scene format=3 uid="uid://c31v7oid2wttf"]
 
 [ext_resource type="Script" uid="uid://bjuqmuo41gnnw" path="res://Scripts/main_menu.gd" id="1_48xlc"]
-[ext_resource type="AudioStream" uid="uid://knv628rv6x7x" path="res://Assets/Music/Menu Theme - Requiem for Dead Pets.mp3" id="3_1ehe0"]
-[ext_resource type="Texture2D" uid="uid://brf7ya0vvy1sj" path="res://Assets/Only_Dogs_Go_To_Heaven_TitleScreen.png" id="3_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://ds18exogh4wom" path="res://icon.svg" id="2_1ehe0"]
 
 [node name="Main Menu" type="Node2D" unique_id=236701639]
 script = ExtResource("1_48xlc")
 
 [node name="Start Game" type="Button" parent="." unique_id=472716533]
-offset_left = 181.0
-offset_top = 534.0
-offset_right = 282.0
-offset_bottom = 597.0
+offset_left = 253.0
+offset_top = 192.0
+offset_right = 389.0
+offset_bottom = 328.0
 text = "Start"
+icon = ExtResource("2_1ehe0")
 
 [node name="Settings" type="Button" parent="." unique_id=681068701]
-offset_left = 532.0
-offset_top = 535.0
-offset_right = 632.0
-offset_bottom = 597.0
+offset_left = 491.0
+offset_top = 191.0
+offset_right = 627.0
+offset_bottom = 327.0
 text = "Settings"
+icon = ExtResource("2_1ehe0")
 
 [node name="Quit Game" type="Button" parent="." unique_id=1200627338]
-offset_left = 842.0
-offset_top = 535.0
-offset_right = 942.0
-offset_bottom = 597.0
+offset_left = 724.0
+offset_top = 192.0
+offset_right = 860.0
+offset_bottom = 328.0
 text = "Quit"
+icon = ExtResource("2_1ehe0")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1155546750]
-stream = ExtResource("3_1ehe0")
-autoplay = true
-
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=896565217]
-position = Vector2(577, 320)
-texture = ExtResource("3_ce3w2")
 
 [connection signal="pressed" from="Start Game" to="." method="_on_start_game_pressed"]
 [connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]

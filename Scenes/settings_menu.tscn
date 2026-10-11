@@ -2,13 +2,11 @@
 
 [ext_resource type="Script" uid="uid://pq31bn70bkbn" path="res://Scripts/settings_menu.gd" id="1_8ef0u"]
 [ext_resource type="Texture2D" uid="uid://ds18exogh4wom" path="res://icon.svg" id="1_icv2g"]
-[ext_resource type="AudioStream" uid="uid://knv628rv6x7x" path="res://Assets/Music/Menu Theme - Requiem for Dead Pets.mp3" id="2_7y5a0"]
 
 [node name="Settings_Menu" type="Node2D" unique_id=2073138696]
 script = ExtResource("1_8ef0u")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1317959730]
-stream = ExtResource("2_7y5a0")
 
 [node name="Sound Slider" type="HSlider" parent="." unique_id=616780395]
 offset_left = 416.0

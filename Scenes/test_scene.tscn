@@ -1,10 +1,25 @@
 [gd_scene format=3 uid="uid://dsnm0recox14p"]
 
 [ext_resource type="Texture2D" uid="uid://ds18exogh4wom" path="res://icon.svg" id="1_r5l72"]
-[ext_resource type="PackedScene" uid="uid://cg6cjabuprr8u" path="res://Scenes/Fish.tscn" id="2_r5l72"]
+[ext_resource type="PackedScene" uid="uid://mhtlm1ergemm" path="res://Scenes/Chinchilla Boss.tscn" id="3_50ct6"]
+[ext_resource type="PackedScene" uid="uid://c2mt1n2j360ci" path="res://Scenes/Cat.tscn" id="3_hb2xm"]
+[ext_resource type="Texture2D" uid="uid://dbe026tnft2e7" path="res://Assets/Untitled144_20261011122521.png" id="4_hb2xm"]
+[ext_resource type="PackedScene" uid="uid://cxgb5jutbbg56" path="res://Scenes/Firebawl.tscn" id="5_ak5v8"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3c2fn"]
 distance = -7.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ak5v8"]
+resource_name = "Ground"
+texture = ExtResource("4_hb2xm")
+0:0/size_in_atlas = Vector2i(48, 9)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-384, -72, -384, 72, 384, 72, 384, -72)
+
+[sub_resource type="TileSet" id="TileSet_o8y2f"]
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_ak5v8")
 
 [node name="Test Scene" type="Node2D" unique_id=1045765983]
 position = Vector2(43, -99)
@@ -21,5 +36,15 @@ position = Vector2(36, 65)
 scale = Vector2(8.0546875, 1)
 texture = ExtResource("1_r5l72")
 
-[node name="CharacterBody2D" parent="." unique_id=1033624582 instance=ExtResource("2_r5l72")]
-position = Vector2(218, 616)
+[node name="Node2D" parent="." unique_id=24595418 instance=ExtResource("3_50ct6")]
+position = Vector2(1980, 99)
+
+[node name="Cat" parent="." unique_id=752942470 instance=ExtResource("3_hb2xm")]
+position = Vector2(-113, 94)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2053992387]
+tile_map_data = PackedByteArray(0, 0, 255, 255, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 47, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 95, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_o8y2f")
+
+[node name="Node2D2" parent="." unique_id=664325411 instance=ExtResource("5_ak5v8")]
+position = Vector2(803, 762)
