@@ -5,7 +5,7 @@ extends CharacterBody2D
 @onready var Attack_Hitbox: Area2D = $"Fish Texture/Attack Hitbox"
 @onready var Damage_Hitbox: Area2D = $"Damage Hitbox"
 @onready var Damage_Timer: Timer = $"Damage Timer"
-
+@onready var follow_path = get_parent()
 
 
 
@@ -16,7 +16,7 @@ const floatspeed = 400
 var floaton = 0
 var grounded = false 
 var jumped = false
-
+var autoplay = false
 
 func _ready() -> void:
 	pass
@@ -34,6 +34,8 @@ func dead():
 
 
 func _physics_process(delta: float) -> void:
+	if autoplay == true:
+		movement(delta)
 	if Damage_Hitbox.get_overlapping_bodies() != [] and Damage_Timer.time_left == 0:
 		hurted(1)
 		Damage_Timer.start()
@@ -100,3 +102,5 @@ func _physics_process(delta: float) -> void:
 		fish.scale.x = -fish.scale.x
 	move_and_slide()
 	
+func movement(delta):
+	follow_path.set_progress(follow_path.get_progress() + SPEED * delta)

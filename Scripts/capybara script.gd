@@ -10,8 +10,9 @@ var peace = 0
 @onready var Damage_Hitbox: Area2D = $"Damage Hitbox"
 @onready var Attack_Hitbox: Area2D = $"Capybara Texture/Attack Hitbox"
 @onready var Damage_Timer: Timer = $"Damage Timer"
+@onready var follow_path = get_parent()
 
-
+var autoplay = false
 
 func _ready() -> void:
 	pass
@@ -29,6 +30,8 @@ func dead():
 
 
 func _physics_process(delta: float) -> void:
+	if autoplay == true:
+		movement(delta)
 	if Input.is_action_pressed("floaton") and Level.Capypeacemeter > 0:
 		peace = 1
 		Level.Capypeacemeter -= Level.CapyConsumemeter
@@ -76,3 +79,5 @@ func _physics_process(delta: float) -> void:
 	elif velocity.x < 0  and capybara.scale.x > 0:
 		capybara.scale.x = -capybara.scale.x
 	move_and_slide()
+func movement(delta):
+	follow_path.set_progress(follow_path.get_progress() + SPEED * delta)
