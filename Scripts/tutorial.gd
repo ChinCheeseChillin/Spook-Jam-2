@@ -28,7 +28,7 @@ func add_myNode_to_my_game():
 		
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	level_to_load = 4
+	level_to_load = 1
 	Level.level = level_to_load
 	print(player_no, "wat")
 	add_myNode_to_my_game()

@@ -38,6 +38,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("attack"):
 		print("attack")
+		#attack_animation.play()
 		for body in Attack_Hitbox.get_overlapping_bodies():
 			print(body)
 			if body.has_method("TakeDamage"):

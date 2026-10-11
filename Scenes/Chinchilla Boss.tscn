@@ -1,0 +1,178 @@
+[gd_scene format=3 uid="uid://mhtlm1ergemm"]
+
+[ext_resource type="Script" uid="uid://c87r3deh4yvp" path="res://Scripts/Chinchilla.gd" id="1_im0im"]
+[ext_resource type="Texture2D" uid="uid://clgxkil5b8ier" path="res://Assets/Cerburus_Chinchilla-sheet.png" id="1_jok6u"]
+[ext_resource type="Script" uid="uid://chqinbnlkt11w" path="res://Scripts/ChinchillaHitbox.gd" id="3_i1w2n"]
+[ext_resource type="Texture2D" uid="uid://cuhe2e6agf1n7" path="res://Assets/Untitled150_20261011162029.png" id="4_fgemi"]
+[ext_resource type="Texture2D" uid="uid://cfbdqdxllmqgc" path="res://Assets/Untitled150_20261011162042.png" id="5_vgiqx"]
+
+[sub_resource type="Curve2D" id="Curve2D_im0im"]
+bake_interval = 0.01
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -300, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jok6u"]
+size = Vector2(160, 178)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jok6u"]
+atlas = ExtResource("1_jok6u")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgiqx"]
+atlas = ExtResource("1_jok6u")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cl1vf"]
+atlas = ExtResource("1_jok6u")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhsex"]
+atlas = ExtResource("1_jok6u")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_im0im"]
+atlas = ExtResource("1_jok6u")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1w2n"]
+atlas = ExtResource("1_jok6u")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgemi"]
+atlas = ExtResource("1_jok6u")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0e8a2"]
+atlas = ExtResource("4_fgemi")
+region = Rect2(0, 0, 256, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6kkg"]
+atlas = ExtResource("4_fgemi")
+region = Rect2(1024, 0, 256, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bk4q"]
+atlas = ExtResource("5_vgiqx")
+region = Rect2(0, 0, 256, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xf57"]
+atlas = ExtResource("5_vgiqx")
+region = Rect2(1024, 0, 256, 1280)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8y2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jok6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgiqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgiqx")
+}],
+"loop": 1,
+"name": &"St1 Fireball",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cl1vf")
+}],
+"loop": 0,
+"name": &"St1 Stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhsex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_im0im")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i1w2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgemi")
+}],
+"loop": 1,
+"name": &"St1 Walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e8a2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6kkg")
+}],
+"loop": 1,
+"name": &"St2 Fireball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0e8a2")
+}],
+"loop": 1,
+"name": &"St2 Stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bk4q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xf57")
+}],
+"loop": 1,
+"name": &"St3 Fireball",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bk4q")
+}],
+"loop": 1,
+"name": &"St3 Stand",
+"speed": 5.0
+}]
+
+[node name="Chinchilla" type="Node2D" unique_id=24595418]
+script = ExtResource("1_im0im")
+
+[node name="Entrance" type="Path2D" parent="." unique_id=1572660324]
+curve = SubResource("Curve2D_im0im")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Entrance" unique_id=1839260506]
+progress = 300.00024
+rotates = false
+loop = false
+
+[node name="Chinchilla Main" type="RigidBody2D" parent="Entrance/PathFollow2D" unique_id=730077599]
+collision_layer = 16
+collision_mask = 17
+freeze = true
+freeze_mode = 1
+script = ExtResource("3_i1w2n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entrance/PathFollow2D/Chinchilla Main" unique_id=1012463658]
+position = Vector2(16, 7)
+shape = SubResource("RectangleShape2D_jok6u")
+
+[node name="Boss Animation" type="AnimatedSprite2D" parent="Entrance/PathFollow2D/Chinchilla Main" unique_id=1983475657]
+scale = Vector2(-4, 4)
+sprite_frames = SubResource("SpriteFrames_o8y2f")
+animation = &"St1 Stand"
+
+[node name="Damage Hitbox" type="Area2D" parent="Entrance/PathFollow2D/Chinchilla Main" unique_id=1247700022]
+collision_layer = 0
+collision_mask = 17
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entrance/PathFollow2D/Chinchilla Main/Damage Hitbox" unique_id=1321627848]
+position = Vector2(16, 7)
+shape = SubResource("RectangleShape2D_jok6u")
+
+[connection signal="hurted" from="Entrance/PathFollow2D/Chinchilla Main" to="." method="_on_chinchilla_main_hurted"]

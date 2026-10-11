@@ -16,7 +16,13 @@ func _process(delta: float) -> void:
 		print("fish selected")
 		if Level.level == 0:
 			get_tree().change_scene_to_file("res://Scenes/tutorial.tscn")
-		if Level.level == 4:
+		elif Level.level == 1:
+			get_tree().change_scene_to_file("res://Scripts/Level 1.tscn")
+		elif Level.level == 2:
+			get_tree().change_scene_to_file("res://Scripts/Level 2.tscn")
+		elif Level.level == 3:
+			get_tree().change_scene_to_file("res://Scripts/Level 3.tscn")
+		elif Level.level == 4:
 			get_tree().change_scene_to_file("res://Scenes/final_level.tscn")
 
 func _on_fish_pressed() -> void:
@@ -27,12 +33,24 @@ func _on_cat_pressed() -> void:
 	Level.player = 2
 	if Level.level == 0:
 		get_tree().change_scene_to_file("res://Scenes/tutorial.tscn")
-	if Level.level == 4:
+	elif Level.level == 1:
+		get_tree().change_scene_to_file("res://Scripts/Level 1.tscn")
+	elif Level.level == 2:
+		get_tree().change_scene_to_file("res://Scripts/Level 2.tscn")
+	elif Level.level == 3:
+		get_tree().change_scene_to_file("res://Scripts/Level 3.tscn")
+	elif Level.level == 4:
 		get_tree().change_scene_to_file("res://Scenes/final_level.tscn")
 
 func _on_capybara_pressed() -> void:
 	Level.player = 3
 	if Level.level == 0:
 		get_tree().change_scene_to_file("res://Scenes/tutorial.tscn")
-	if Level.level == 4:
+	elif Level.level == 1:
+		get_tree().change_scene_to_file("res://Scripts/Level 1.tscn")
+	elif Level.level == 2:
+		get_tree().change_scene_to_file("res://Scripts/Level 2.tscn")
+	elif Level.level == 3:
+		get_tree().change_scene_to_file("res://Scripts/Level 3.tscn")
+	elif Level.level == 4:
 		get_tree().change_scene_to_file("res://Scenes/final_level.tscn")

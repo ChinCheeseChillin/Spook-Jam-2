@@ -1,0 +1,98 @@
+[gd_scene format=4 uid="uid://cyy5wynpptltc"]
+
+[ext_resource type="Script" uid="uid://bly5dqetobicn" path="res://Scripts/level_3.gd" id="1_j1svd"]
+[ext_resource type="Texture2D" uid="uid://dbe026tnft2e7" path="res://Assets/Untitled144_20261011122521.png" id="2_rlnms"]
+[ext_resource type="PackedScene" uid="uid://beknaqhigkanh" path="res://Scenes/Rat.tscn" id="3_j1svd"]
+[ext_resource type="PackedScene" uid="uid://o57j50vgxw7v" path="res://Scenes/Spider.tscn" id="4_g0wt2"]
+[ext_resource type="PackedScene" uid="uid://d3m2oxce2hbbs" path="res://Scenes/Bat.tscn" id="5_yh041"]
+[ext_resource type="PackedScene" uid="uid://cg6cjabuprr8u" path="res://Scenes/Fish.tscn" id="6_m8dvv"]
+[ext_resource type="Texture2D" uid="uid://cmiteoom4onxh" path="res://Assets/Untitled152_20261011160314.png" id="7_goxq4"]
+[ext_resource type="PackedScene" uid="uid://cxgb5jutbbg56" path="res://Scenes/Firebawl.tscn" id="8_xo7nu"]
+[ext_resource type="PackedScene" uid="uid://c2mt1n2j360ci" path="res://Scenes/Cat.tscn" id="9_j1svd"]
+[ext_resource type="PackedScene" uid="uid://by1hfa0q0wgdy" path="res://Scenes/Capybara.tscn" id="10_g0wt2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itbha"]
+resource_name = "Ground"
+texture = ExtResource("2_rlnms")
+0:0/size_in_atlas = Vector2i(48, 9)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-384, -72, -384, 72, 384, 72, 384, -72)
+
+[sub_resource type="TileSet" id="TileSet_odypp"]
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_itbha")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8y2f"]
+size = Vector2(540, 838)
+
+[node name="Node2D" type="Node2D" unique_id=1919215818]
+script = ExtResource("1_j1svd")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=27046829]
+tile_map_data = PackedByteArray("AAD//xAAAAAAAAAAAAAvABAAAAAAAAAAAABfABAAAAAAAAAAAAC7ABAAAAAAAAAAAAAGARAAAAAAAAAAAACcABAAAAAAAAAAAADNABAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_odypp")
+
+[node name="RatMain" parent="." unique_id=202635849 instance=ExtResource("3_j1svd")]
+position = Vector2(2773, 188)
+speed = 200.0
+x = 200.0
+
+[node name="SpiderMain" parent="." unique_id=440499219 instance=ExtResource("4_g0wt2")]
+position = Vector2(1806, 171)
+Stationary = true
+
+[node name="BatMain" parent="." unique_id=1276709673 instance=ExtResource("5_yh041")]
+position = Vector2(928, 34)
+x = 400.0
+
+[node name="Fish" parent="." unique_id=1033624582 instance=ExtResource("6_m8dvv")]
+position = Vector2(107, 129)
+
+[node name="SpiderMain2" parent="." unique_id=492222335 instance=ExtResource("4_g0wt2")]
+position = Vector2(2575, 171)
+speed = 200.0
+x = 500.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2107453606]
+
+[node name="Untitled15220261011160314" type="Sprite2D" parent="Area2D" unique_id=514316366]
+position = Vector2(4229, -126)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_goxq4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=79617797]
+position = Vector2(4215, -19.5)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_o8y2f")
+
+[node name="SpiderMain3" parent="." unique_id=101824916 instance=ExtResource("4_g0wt2")]
+position = Vector2(955.9999, 355)
+rotation = 3.1503193
+x = 500.0
+Stationary = true
+
+[node name="Node2D" parent="." unique_id=664325411 instance=ExtResource("8_xo7nu")]
+position = Vector2(1952, 276)
+speed = 150
+
+[node name="Node2D2" parent="." unique_id=688793592 instance=ExtResource("8_xo7nu")]
+position = Vector2(-146, 563)
+scale = Vector2(-1, 1)
+speed = 400
+
+[node name="Cat" parent="." unique_id=752942470 instance=ExtResource("9_j1svd")]
+position = Vector2(107, 128)
+
+[node name="Capybara" parent="." unique_id=1526808174 instance=ExtResource("10_g0wt2")]
+position = Vector2(110, 118)
+
+[node name="RatMain2" parent="." unique_id=1148737677 instance=ExtResource("3_j1svd")]
+position = Vector2(779, 196)
+Stationary = true
+
+[node name="BatMain2" parent="." unique_id=737862481 instance=ExtResource("5_yh041")]
+position = Vector2(3736, 151)
+Stationary = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

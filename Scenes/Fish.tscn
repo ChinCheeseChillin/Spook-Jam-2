@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://cg6cjabuprr8u"]
 
-[ext_resource type="Texture2D" uid="uid://ds18exogh4wom" path="res://icon.svg" id="1_boxf0"]
 [ext_resource type="Script" uid="uid://cipx8xdp4m3yr" path="res://Scripts/Fish Script.gd" id="1_two43"]
 [ext_resource type="Texture2D" uid="uid://cje51okassjuk" path="res://Assets/Ghost_Fish.png" id="2_two43"]
+[ext_resource type="Texture2D" uid="uid://dc7mscjb24vbm" path="res://Assets/Untitled146_20261011150607.png" id="3_orbqn"]
+[ext_resource type="Texture2D" uid="uid://b7c525iw0g6hw" path="res://Assets/Untitled146_20261011150610.png" id="4_gk10o"]
+[ext_resource type="Texture2D" uid="uid://dhkvkinthlc2u" path="res://Assets/Untitled146_20261011150612.png" id="5_3tf33"]
+[ext_resource type="Texture2D" uid="uid://te035yqc5p5v" path="res://Assets/Untitled146_20261011150615.png" id="6_a0d67"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8od7v"]
 size = Vector2(87, 65)
@@ -49,6 +52,56 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5su7o"]
 radius = 27.0
 height = 88.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8y2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_orbqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gk10o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3tf33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a0d67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_orbqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gk10o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3tf33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a0d67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_orbqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gk10o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_3tf33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_a0d67")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"default",
+"speed": 22.0
+}]
 
 [node name="Fish" type="CharacterBody2D" unique_id=1033624582]
 collision_mask = 5
@@ -98,7 +151,10 @@ position = Vector2(30.030027, -19.01902)
 shape = SubResource("CapsuleShape2D_5su7o")
 debug_color = Color(0.9525401, 1.347661e-06, 0.56058955, 0.41960785)
 
-[node name="Icon" type="Sprite2D" parent="Fish Texture/Attack Hitbox/CollisionShape2D" unique_id=547028568]
-position = Vector2(-0.50050354, 1.0010018)
-scale = Vector2(0.43011764, 0.67254746)
-texture = ExtResource("1_boxf0")
+[node name="Attack Animation" type="AnimatedSprite2D" parent="Fish Texture/Attack Hitbox/CollisionShape2D" unique_id=573488455]
+position = Vector2(-5.005001, -10.010006)
+rotation = 1.5707964
+scale = Vector2(0.3124321, 0.29993725)
+sprite_frames = SubResource("SpriteFrames_o8y2f")
+frame = 13
+frame_progress = 1.0
