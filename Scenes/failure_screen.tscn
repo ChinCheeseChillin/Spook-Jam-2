@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bripmv7flewj3"]
+
+[ext_resource type="Script" uid="uid://b0r7npcatip4m" path="res://Scenes/failure_screen.gd" id="1_fm5f2"]
+[ext_resource type="AudioStream" uid="uid://bc2gavhgtbovi" path="res://Assets/Music/Game Over Theme - Even A Flame Burns Out.mp3" id="1_fy6mj"]
+[ext_resource type="Texture2D" uid="uid://dqaxpgjnfj2ix" path="res://Assets/Untitled153_20261011160627.png" id="3_4wx8m"]
+
+[node name="Failure Screen" type="Node2D" unique_id=785716851]
+script = ExtResource("1_fm5f2")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=347134272]
+stream = ExtResource("1_fy6mj")
+
+[node name="Retry" type="Button" parent="." unique_id=1525552252]
+offset_left = 262.0
+offset_top = 482.0
+offset_right = 458.0
+offset_bottom = 602.0
+text = "Retry"
+
+[node name="Main Menu" type="Button" parent="." unique_id=803844117]
+offset_left = 646.0
+offset_top = 481.0
+offset_right = 860.0
+offset_bottom = 599.0
+text = "Main Menu"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1939558461]
+position = Vector2(577.0002, 224.00005)
+scale = Vector2(0.8929688, 0.3478515)
+texture = ExtResource("3_4wx8m")
+
+[connection signal="pressed" from="Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Main Menu" to="." method="_on_main_menu_pressed"]

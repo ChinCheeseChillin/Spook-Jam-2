@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dti1i5nver1b8"]
+
+[ext_resource type="Script" uid="uid://bmu4oxcw305m8" path="res://Scenes/final_scene.gd" id="1_l225o"]
+[ext_resource type="AudioStream" uid="uid://bgdfqpnrumdgf" path="res://Assets/Music/Ending Theme - Ascension.mp3" id="2_ay78q"]
+[ext_resource type="Texture2D" uid="uid://ci7yebimf8i8x" path="res://Assets/Only_Dogs_Go_To_Heaven_FinalScenesheet-sheet.png" id="3_fi7pp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_26gof"]
+atlas = ExtResource("3_fi7pp")
+region = Rect2(0, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5wbw"]
+atlas = ExtResource("3_fi7pp")
+region = Rect2(1152, 0, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_osicj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_26gof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5wbw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Final Scene" type="Node2D" unique_id=1082128053]
+script = ExtResource("1_l225o")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1227467355]
+stream = ExtResource("2_ay78q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1626409846]
+position = Vector2(572, 324)
+sprite_frames = SubResource("SpriteFrames_osicj")

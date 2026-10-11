@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://dm4kbme8bhueh"]
+
+[ext_resource type="Script" uid="uid://cv8pwjvrc5xcu" path="res://beginning_scene_part_1.gd" id="1_7ms1d"]
+
+[node name="Beginning Scene Part 1" type="Node2D" unique_id=969232777]
+script = ExtResource("1_7ms1d")
+
+[node name="Label" type="Label" parent="." unique_id=1232369792]
+offset_left = 358.0
+offset_top = 104.0
+offset_right = 824.0
+offset_bottom = 127.0
+text = "\"All dogs go to heaven,\" a saying that's been true since 1989."
+
+[node name="Label2" type="Label" parent="." unique_id=799305238]
+offset_left = 37.0
+offset_top = 142.0
+offset_right = 1099.0
+offset_bottom = 165.0
+text = "You'd think that if there was enough room for every species of canine out there in heaven, it'd be easy for any animal to get there, but no."
+
+[node name="Label3" type="Label" parent="." unique_id=2103070848]
+offset_left = 282.0
+offset_top = 186.0
+offset_right = 968.0
+offset_bottom = 235.0
+text = "What awaits every other animal lies deep down in the misery known as the underworld,
+a realm of scorching flames guarded by a terrifying three-headed amalgamation."
+
+[node name="Label4" type="Label" parent="." unique_id=527783218]
+offset_left = 90.0
+offset_top = 244.0
+offset_right = 1079.0
+offset_bottom = 267.0
+text = "Some have tried to escape, to much avail too, but of course, all attempts to escape the underworld have ended in the same way:"
+
+[node name="Label5" type="Label" parent="." unique_id=1950557083]
+offset_left = 535.0
+offset_top = 275.0
+offset_right = 642.0
+offset_bottom = 298.0
+text = "Death...again."
+
+[node name="Label6" type="Label" parent="." unique_id=2081508273]
+offset_left = 251.0
+offset_top = 304.0
+offset_right = 899.0
+offset_bottom = 327.0
+text = "Not many dare to try and exit the underworld given the fate that likely awaits them;"
+
+[node name="Label7" type="Label" parent="." unique_id=1065809909]
+offset_left = 333.0
+offset_top = 338.0
+offset_right = 819.0
+offset_bottom = 361.0
+text = "however, something tells me that's all about to change shortly."
+
+[node name="Timer" type="Timer" parent="." unique_id=40156289]
+wait_time = 5.0
+autostart = true
+
+[node name="Timer2" type="Timer" parent="." unique_id=1393077190]
+wait_time = 0.25
+autostart = true

@@ -2,6 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://ds18exogh4wom" path="res://icon.svg" id="1_lr3dp"]
 [ext_resource type="Script" uid="uid://wost4iejbw4u" path="res://Scripts/final_level.gd" id="1_mu3l5"]
+[ext_resource type="AudioStream" uid="uid://do2u1ainjiks7" path="res://Assets/Music/Boss Theme 1 - Three-Headed Terror.mp3" id="3_8elp7"]
+[ext_resource type="AudioStream" uid="uid://bhqacnpcf1o8f" path="res://Assets/Music/Boss Theme 2 - Creatures of Sin.mp3" id="4_av7ct"]
+[ext_resource type="AudioStream" uid="uid://m1ggg1yhggcn" path="res://Assets/Music/Boss Theme 3 - Angel of Death.mp3" id="5_ake6q"]
 
 [node name="Final Level" type="Node2D" unique_id=1010043163]
 script = ExtResource("1_mu3l5")
@@ -15,5 +18,13 @@ text = "Win da game"
 icon = ExtResource("1_lr3dp")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=984243496]
+stream = ExtResource("3_8elp7")
+autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=862861793]
+stream = ExtResource("4_av7ct")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="." unique_id=2083848481]
+stream = ExtResource("5_ake6q")
 
 [connection signal="pressed" from="Win Game" to="." method="_on_win_game_pressed"]

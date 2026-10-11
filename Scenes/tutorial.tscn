@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bgqw5tsx6vbtf" path="res://Scripts/tutorial.gd" id="1_feyax"]
 [ext_resource type="Texture2D" uid="uid://ds18exogh4wom" path="res://icon.svg" id="1_ka2pi"]
 [ext_resource type="PackedScene" uid="uid://by1hfa0q0wgdy" path="res://Scenes/Capybara.tscn" id="3_p8jf4"]
+[ext_resource type="AudioStream" uid="uid://cgtvrlb1ltncr" path="res://Assets/Music/Stage Theme - The Infinite Inferno.mp3" id="3_ys4pu"]
 [ext_resource type="PackedScene" uid="uid://c2mt1n2j360ci" path="res://Scenes/Cat.tscn" id="4_p1f1o"]
 [ext_resource type="PackedScene" uid="uid://cg6cjabuprr8u" path="res://Scenes/Fish.tscn" id="5_ys4pu"]
 [ext_resource type="PackedScene" uid="uid://beknaqhigkanh" path="res://Scenes/Rat.tscn" id="6_p1f1o"]
@@ -21,6 +22,8 @@ text = "Hello World!"
 icon = ExtResource("1_ka2pi")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1903457658]
+stream = ExtResource("3_ys4pu")
+autoplay = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=268366027]
 position = Vector2(509, 602)
