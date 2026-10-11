@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://ts2v4m4y66r1"]
+
+[ext_resource type="Script" uid="uid://pq31bn70bkbn" path="res://Scripts/settings_menu.gd" id="1_8ef0u"]
+[ext_resource type="Texture2D" uid="uid://ds18exogh4wom" path="res://icon.svg" id="1_icv2g"]
+
+[node name="Settings_Menu" type="Node2D" unique_id=2073138696]
+script = ExtResource("1_8ef0u")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1317959730]
+
+[node name="Sound Slider" type="HSlider" parent="." unique_id=616780395]
+offset_left = 416.0
+offset_top = 411.0
+offset_right = 799.0
+offset_bottom = 427.0
+
+[node name="Button" type="Button" parent="." unique_id=1526237457]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Back to Menu"
+icon = ExtResource("1_icv2g")
+
+[connection signal="value_changed" from="Sound Slider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c31v7oid2wttf"]
+
+[ext_resource type="Script" uid="uid://bjuqmuo41gnnw" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+[ext_resource type="Texture2D" uid="uid://ds18exogh4wom" path="res://icon.svg" id="2_1ehe0"]
+
+[node name="Main Menu" type="Node2D" unique_id=236701639]
+script = ExtResource("1_48xlc")
+
+[node name="Start Game" type="Button" parent="." unique_id=472716533]
+offset_left = 253.0
+offset_top = 192.0
+offset_right = 389.0
+offset_bottom = 328.0
+text = "Start"
+icon = ExtResource("2_1ehe0")
+
+[node name="Settings" type="Button" parent="." unique_id=681068701]
+offset_left = 491.0
+offset_top = 191.0
+offset_right = 627.0
+offset_bottom = 327.0
+text = "Settings"
+icon = ExtResource("2_1ehe0")
+
+[node name="Quit Game" type="Button" parent="." unique_id=1200627338]
+offset_left = 724.0
+offset_top = 192.0
+offset_right = 860.0
+offset_bottom = 328.0
+text = "Quit"
+icon = ExtResource("2_1ehe0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1155546750]
+
+[connection signal="pressed" from="Start Game" to="." method="_on_start_game_pressed"]
+[connection signal="pressed" from="Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Quit Game" to="." method="_on_quit_game_pressed"]

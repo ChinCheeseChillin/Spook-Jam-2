@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dri4m1ppvstt5"]
+
+[ext_resource type="Script" uid="uid://dd1uk6u4r8fsn" path="res://Scripts/player_selection.gd" id="1_wt4u3"]
+[ext_resource type="Texture2D" uid="uid://ds18exogh4wom" path="res://icon.svg" id="2_u4bjh"]
+
+[node name="Player Selection" type="Node2D" unique_id=473879880]
+script = ExtResource("1_wt4u3")
+
+[node name="Fish" type="Button" parent="." unique_id=76368348]
+offset_left = 219.0
+offset_top = 221.0
+offset_right = 390.0
+offset_bottom = 357.0
+text = "Fish"
+icon = ExtResource("2_u4bjh")
+
+[node name="Cat" type="Button" parent="." unique_id=1146437091]
+offset_left = 524.0
+offset_top = 221.0
+offset_right = 690.0
+offset_bottom = 357.0
+text = "Cat"
+icon = ExtResource("2_u4bjh")
+
+[node name="Capybara" type="Button" parent="." unique_id=1857250736]
+offset_left = 812.0
+offset_top = 216.0
+offset_right = 1026.0
+offset_bottom = 352.0
+text = "Capybara"
+icon = ExtResource("2_u4bjh")
+
+[connection signal="pressed" from="Fish" to="." method="_on_fish_pressed"]
+[connection signal="pressed" from="Cat" to="." method="_on_cat_pressed"]
+[connection signal="pressed" from="Capybara" to="." method="_on_capybara_pressed"]
