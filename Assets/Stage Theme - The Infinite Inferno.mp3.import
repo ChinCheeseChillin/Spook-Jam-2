@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cgtvrlb1ltncr"
+path="res://.godot/imported/Stage Theme - The Infinite Inferno.mp3-b297042c2405b54bba2f664eb27e2eaf.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Stage Theme - The Infinite Inferno.mp3"
+dest_files=["res://.godot/imported/Stage Theme - The Infinite Inferno.mp3-b297042c2405b54bba2f664eb27e2eaf.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

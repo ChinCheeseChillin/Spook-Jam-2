@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://m1ggg1yhggcn"
+path="res://.godot/imported/Boss Theme 3 - Angel of Death.mp3-03c2db04fb324bc226f806c8a0f3e9cc.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Boss Theme 3 - Angel of Death.mp3"
+dest_files=["res://.godot/imported/Boss Theme 3 - Angel of Death.mp3-03c2db04fb324bc226f806c8a0f3e9cc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

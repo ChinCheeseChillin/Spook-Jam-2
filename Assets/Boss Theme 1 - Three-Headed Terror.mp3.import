@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://do2u1ainjiks7"
+path="res://.godot/imported/Boss Theme 1 - Three-Headed Terror.mp3-5d60b3dfc064a7a3889f8175502943c4.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Boss Theme 1 - Three-Headed Terror.mp3"
+dest_files=["res://.godot/imported/Boss Theme 1 - Three-Headed Terror.mp3-5d60b3dfc064a7a3889f8175502943c4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

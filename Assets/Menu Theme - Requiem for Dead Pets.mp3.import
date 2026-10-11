@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://knv628rv6x7x"
+path="res://.godot/imported/Menu Theme - Requiem for Dead Pets.mp3-31ca9fd5b073c3ebe646b928775a9807.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Menu Theme - Requiem for Dead Pets.mp3"
+dest_files=["res://.godot/imported/Menu Theme - Requiem for Dead Pets.mp3-31ca9fd5b073c3ebe646b928775a9807.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

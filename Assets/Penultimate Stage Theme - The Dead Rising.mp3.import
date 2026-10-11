@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cgbf35f525gcf"
+path="res://.godot/imported/Penultimate Stage Theme - The Dead Rising.mp3-04c048a0d8e60782b4b168e86e2d7e41.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Penultimate Stage Theme - The Dead Rising.mp3"
+dest_files=["res://.godot/imported/Penultimate Stage Theme - The Dead Rising.mp3-04c048a0d8e60782b4b168e86e2d7e41.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bgdfqpnrumdgf"
+path="res://.godot/imported/Ending Theme - Ascension.mp3-549ab02b784b6401477d38d5815cfac3.mp3str"
+
+[deps]
+
+source_file="res://Assets/Music/Ending Theme - Ascension.mp3"
+dest_files=["res://.godot/imported/Ending Theme - Ascension.mp3-549ab02b784b6401477d38d5815cfac3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
