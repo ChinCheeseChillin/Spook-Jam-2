@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://d4derx1adjmw5"]
+
+[ext_resource type="Texture2D" uid="uid://ccd7du5e2urmr" path="res://Assets/Bugger_Still_Front.png" id="1_5oj71"]
+[ext_resource type="PackedScene" uid="uid://cg6cjabuprr8u" path="res://Scenes/Fish.tscn" id="2_ckix0"]
+[ext_resource type="PackedScene" uid="uid://c2mt1n2j360ci" path="res://Scenes/Cat.tscn" id="3_fenb2"]
+[ext_resource type="PackedScene" uid="uid://by1hfa0q0wgdy" path="res://Scenes/Capybara.tscn" id="4_ckix0"]
+[ext_resource type="PackedScene" uid="uid://beknaqhigkanh" path="res://Scenes/Rat.tscn" id="5_fenb2"]
+[ext_resource type="PackedScene" uid="uid://d3m2oxce2hbbs" path="res://Scenes/Bat.tscn" id="6_0j0yr"]
+[ext_resource type="PackedScene" uid="uid://o57j50vgxw7v" path="res://Scenes/Spider.tscn" id="7_t3e7m"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_o8y2f"]
+distance = -1.5000305
+
+[node name="Node2D" type="Node2D" unique_id=1718691652]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1736085177]
+position = Vector2(358.49994, 170.49997)
+collision_layer = 3
+collision_mask = 3
+
+[node name="BuggerStillFront" type="Sprite2D" parent="StaticBody2D" unique_id=279879581]
+position = Vector2(27.500061, 40.50003)
+texture = ExtResource("1_5oj71")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=23500024]
+position = Vector2(36, 12)
+shape = SubResource("WorldBoundaryShape2D_o8y2f")
+
+[node name="CharacterBody2D" parent="." unique_id=1033624582 instance=ExtResource("2_ckix0")]
+position = Vector2(348, -84)
+
+[node name="CharacterBody2D2" parent="." unique_id=752942470 instance=ExtResource("3_fenb2")]
+position = Vector2(511, -66)
+
+[node name="CharacterBody2D3" parent="." unique_id=1526808174 instance=ExtResource("4_ckix0")]
+position = Vector2(173, -78)
+
+[node name="Node2D" parent="." unique_id=202635849 instance=ExtResource("5_fenb2")]
+position = Vector2(713, 168)
+x = 200.0
+HP = 2.0
+
+[node name="Node2D2" parent="." unique_id=1055875037 instance=ExtResource("5_fenb2")]
+position = Vector2(-83, 193)
+x = 100.0
+
+[node name="Node2D3" parent="." unique_id=1483748443 instance=ExtResource("5_fenb2")]
+position = Vector2(825, 43)
+x = 200.0
+HP = 2.0
+Stationary = true
+
+[node name="BatMain" parent="." unique_id=1972212461 instance=ExtResource("6_0j0yr")]
+position = Vector2(29, -1)
+speed = 40.0
+y = 50
+
+[node name="BatMain2" parent="." unique_id=163215785 instance=ExtResource("6_0j0yr")]
+position = Vector2(820, -66)
+Stationary = true
+
+[node name="SpiderMain" parent="." unique_id=920809178 instance=ExtResource("7_t3e7m")]
+position = Vector2(610, 132)
+rotation = -1.5707964
+speed = 20.0
+x = 40.0
+
+[node name="SpiderMain2" parent="." unique_id=473352956 instance=ExtResource("7_t3e7m")]
+position = Vector2(911, 19)
+x = 500.0
+Stationary = true

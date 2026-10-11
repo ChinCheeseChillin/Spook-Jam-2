@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://beknaqhigkanh"]
+
+[ext_resource type="Script" uid="uid://77h3l35lo008" path="res://Scripts/Rat Script.gd" id="1_j45nl"]
+[ext_resource type="Script" uid="uid://llfn5njd4yi4" path="res://Scripts/RatHitbox.gd" id="2_mlyvy"]
+[ext_resource type="Texture2D" uid="uid://5thj78dqjnoq" path="res://Assets/Untitled142_20261010172409.png" id="3_sb1dd"]
+[ext_resource type="Texture2D" uid="uid://cq4g5025k2hqe" path="res://Assets/Untitled142_20261010172414.png" id="4_bypqk"]
+[ext_resource type="Texture2D" uid="uid://brj8cf5b0pjpv" path="res://Assets/Untitled142_20261010172417.png" id="5_mku5s"]
+
+[sub_resource type="Curve2D" id="Curve2D_itaso"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8y2f"]
+size = Vector2(67, 31.999994)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8y2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_sb1dd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bypqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_mku5s")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RatMain" type="Node2D" unique_id=202635849 groups=["hurtable"]]
+script = ExtResource("1_j45nl")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=561461792]
+curve = SubResource("Curve2D_itaso")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1618050157]
+rotation = -3.1415925
+progress = 349.84802
+rotates = false
+
+[node name="Rat" type="RigidBody2D" parent="Path2D/PathFollow2D" unique_id=1104463921]
+collision_layer = 16
+collision_mask = 17
+freeze = true
+freeze_mode = 1
+script = ExtResource("2_mlyvy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Rat" unique_id=1662299824]
+position = Vector2(-5.4999967, 16)
+shape = SubResource("RectangleShape2D_o8y2f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D/PathFollow2D/Rat" unique_id=883170860]
+position = Vector2(-5.999999, 16)
+rotation = 3.1415925
+scale = Vector2(0.143, 0.145)
+sprite_frames = SubResource("SpriteFrames_o8y2f")
+frame_progress = 0.9749488
+
+[connection signal="hurted" from="Path2D/PathFollow2D/Rat" to="." method="_on_rigid_body_2d_hurted"]
