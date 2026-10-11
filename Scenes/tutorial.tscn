@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://bgqw5tsx6vbtf" path="res://Scripts/tutorial.gd" id="1_feyax"]
 [ext_resource type="Texture2D" uid="uid://ds18exogh4wom" path="res://icon.svg" id="1_ka2pi"]
+[ext_resource type="PackedScene" uid="uid://by1hfa0q0wgdy" path="res://Scenes/Capybara.tscn" id="3_p8jf4"]
+[ext_resource type="PackedScene" uid="uid://c2mt1n2j360ci" path="res://Scenes/Cat.tscn" id="4_p1f1o"]
+[ext_resource type="PackedScene" uid="uid://cg6cjabuprr8u" path="res://Scenes/Fish.tscn" id="5_ys4pu"]
+[ext_resource type="PackedScene" uid="uid://beknaqhigkanh" path="res://Scenes/Rat.tscn" id="6_p1f1o"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_fdm2o"]
 
@@ -9,20 +13,36 @@
 script = ExtResource("1_feyax")
 
 [node name="Level 1" type="Button" parent="." unique_id=818194006]
-offset_left = 901.0
-offset_top = 10.0
-offset_right = 1136.0
-offset_bottom = 146.0
+offset_left = 306.0
+offset_top = 177.0
+offset_right = 541.0
+offset_bottom = 313.0
 text = "Hello World!"
 icon = ExtResource("1_ka2pi")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1903457658]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=268366027]
-position = Vector2(563, 632)
+position = Vector2(509, 602)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1330302934]
-position = Vector2(3, 2)
+position = Vector2(-399, -194)
 shape = SubResource("WorldBoundaryShape2D_fdm2o")
+
+[node name="Capybara" parent="." unique_id=1526808174 instance=ExtResource("3_p8jf4")]
+position = Vector2(-1, -2)
+
+[node name="Cat" parent="." unique_id=752942470 instance=ExtResource("4_p1f1o")]
+position = Vector2(-1, -2)
+
+[node name="Fish" parent="." unique_id=1033624582 instance=ExtResource("5_ys4pu")]
+position = Vector2(-1, 0)
+
+[node name="RatMain" parent="." unique_id=202635849 instance=ExtResource("6_p1f1o")]
+position = Vector2(355, 407)
+HP = 50.0
+Stationary = true
 
 [connection signal="pressed" from="Level 1" to="." method="_on_level_1_pressed"]

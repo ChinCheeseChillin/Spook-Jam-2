@@ -4,20 +4,24 @@ extends CharacterBody2D
 @onready var Damage_Hitbox: Area2D = $"Damage Hitbox"
 @onready var Attack_Hitbox: Area2D = $"Cat Texture/Attack Hitbox"
 @onready var Damage_Timer: Timer = $"Cat Texture/Attack Hitbox/Damage Timer"
+@onready var attack_animation: AnimatedSprite2D = $"Cat Texture/Attack Hitbox/Attack Animation"
+
 
 const SPEED = 350.0
 const JUMP_VELOCITY = -600.0
 
-@export var HP = 3
+var boost = 0
+const baseAttack = 1
+
 
 func _ready() -> void:
 	pass
 	#hide()
 
 func hurted(damage):
-	HP -= damage
-	print(HP, "owie")
-	if HP <= 0:
+	Level.CatHP -= damage
+	print(Level.CatHP, "owie")
+	if Level.CatHP <= 0:
 		dead()
 
 func dead():
@@ -25,13 +29,25 @@ func dead():
 	queue_free()
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("attack"):
+	
+	if Input.is_action_just_pressed("floaton") and Level.Catdoublemeter > 0 and boost == 0:
+		boost = 1
+		Level.Catdoublemeter -= Level.CatConsumemeter
+		print(Level.Catdoublemeter)
+
+	if Input.is_action_just_pressed("attack") and attack_animation.is_playing() == false:
 		print("attack")
+		attack_animation.play()
 		for body in Attack_Hitbox.get_overlapping_bodies():
 			print(body)
 			if body.has_method("TakeDamage"):
 				print("hurt")
-				body.TakeDamage(1)
+				if boost == 0:
+					body.TakeDamage(baseAttack)
+				else:
+					boost = 0
+					print("boost consumed ", boost)
+					body.TakeDamage(2 * baseAttack)
 
 	
 	

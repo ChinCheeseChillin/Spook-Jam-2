@@ -9,25 +9,23 @@ extends CharacterBody2D
 
 
 
-
+const baseAttack = 1
 const SPEED = 300.0
 const JUMP_VELOCITY = -550.0
-var floatmeter = 100
 const floatspeed = 400
 var floaton = 0
 var grounded = false 
 var jumped = false
 
-@export var HP = 3
 
 func _ready() -> void:
 	pass
 	#hide()
 
 func hurted(damage):
-	HP -= damage
-	print(HP, "owie")
-	if HP <= 0:
+	Level.FishHP -= damage
+	print(Level.FishHP, "owie")
+	if Level.FishHP <= 0:
 		dead()
 
 func dead():
@@ -47,7 +45,7 @@ func _physics_process(delta: float) -> void:
 			print(body)
 			if body.has_method("TakeDamage"):
 				print("hurt")
-				body.TakeDamage(1)
+				body.TakeDamage(baseAttack)
 	
 	if Floating_Hitbox.get_overlapping_bodies() == []:
 		grounded = false
@@ -73,8 +71,10 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.y = velocity.y - 0.1 * velocity.y
 
-	if Input.is_action_pressed("floaton") and floatmeter != 0:
+	if Input.is_action_pressed("floaton") and Level.Fishfloatmeter != 0:
 		floaton = 1
+		Level.Fishfloatmeter -= Level.FishConsumemeter
+		print(Level.Fishfloatmeter)
 		set_collision_mask_value(1, false)
 	else:
 		floaton = 0

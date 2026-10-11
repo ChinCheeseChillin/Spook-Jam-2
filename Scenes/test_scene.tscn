@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dsnm0recox14p"]
 
 [ext_resource type="Texture2D" uid="uid://ds18exogh4wom" path="res://icon.svg" id="1_r5l72"]
-[ext_resource type="PackedScene" uid="uid://cg6cjabuprr8u" path="res://Scenes/charac.tscn" id="2_r5l72"]
+[ext_resource type="PackedScene" uid="uid://cg6cjabuprr8u" path="res://Scenes/Fish.tscn" id="2_r5l72"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_3c2fn"]
 distance = -7.0

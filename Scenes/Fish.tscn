@@ -50,7 +50,7 @@ animations = [{
 radius = 27.0
 height = 88.0
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1033624582]
+[node name="Fish" type="CharacterBody2D" unique_id=1033624582]
 collision_mask = 5
 script = ExtResource("1_two43")
 
@@ -98,7 +98,7 @@ position = Vector2(30.030027, -19.01902)
 shape = SubResource("CapsuleShape2D_5su7o")
 debug_color = Color(0.9525401, 1.347661e-06, 0.56058955, 0.41960785)
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=547028568]
-position = Vector2(82.5, 4.999997)
-scale = Vector2(0.42968753, 0.67187494)
+[node name="Icon" type="Sprite2D" parent="Fish Texture/Attack Hitbox/CollisionShape2D" unique_id=547028568]
+position = Vector2(-0.50050354, 1.0010018)
+scale = Vector2(0.43011764, 0.67254746)
 texture = ExtResource("1_boxf0")
