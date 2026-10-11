@@ -1,0 +1,74 @@
+[gd_scene format=4 uid="uid://kf83knsxdo83"]
+
+[ext_resource type="Texture2D" uid="uid://dbe026tnft2e7" path="res://Assets/Untitled144_20261011122521.png" id="1_m7qpm"]
+[ext_resource type="Script" uid="uid://d0d78kqn5c76" path="res://Scripts/level_1.gd" id="1_volpg"]
+[ext_resource type="PackedScene" uid="uid://beknaqhigkanh" path="res://Scenes/Rat.tscn" id="2_hpgnj"]
+[ext_resource type="PackedScene" uid="uid://o57j50vgxw7v" path="res://Scenes/Spider.tscn" id="3_itbha"]
+[ext_resource type="PackedScene" uid="uid://d3m2oxce2hbbs" path="res://Scenes/Bat.tscn" id="4_odypp"]
+[ext_resource type="PackedScene" uid="uid://cg6cjabuprr8u" path="res://Scenes/Fish.tscn" id="5_odypp"]
+[ext_resource type="Texture2D" uid="uid://cmiteoom4onxh" path="res://Assets/Untitled152_20261011160314.png" id="7_hb1bi"]
+[ext_resource type="PackedScene" uid="uid://c2mt1n2j360ci" path="res://Scenes/Cat.tscn" id="8_d6un8"]
+[ext_resource type="PackedScene" uid="uid://by1hfa0q0wgdy" path="res://Scenes/Capybara.tscn" id="9_jjw1q"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itbha"]
+resource_name = "Ground"
+texture = ExtResource("1_m7qpm")
+0:0/size_in_atlas = Vector2i(48, 9)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-384, -72, -384, 72, 384, 72, 384, -72)
+
+[sub_resource type="TileSet" id="TileSet_odypp"]
+physics_layer_0/collision_layer = 3
+physics_layer_0/collision_mask = 3
+sources/0 = SubResource("TileSetAtlasSource_itbha")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8y2f"]
+size = Vector2(540, 838)
+
+[node name="Node2D" type="Node2D" unique_id=1919215818]
+script = ExtResource("1_volpg")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=27046829]
+tile_map_data = PackedByteArray("AAD//xAAAAAAAAAAAAAvABAAAAAAAAAAAABfABAAAAAAAAAAAAC7ABAAAAAAAAAAAAAGARAAAAAAAAAAAACcABAAAAAAAAAAAADNABAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_odypp")
+
+[node name="RatMain" parent="." unique_id=202635849 instance=ExtResource("2_hpgnj")]
+position = Vector2(799, 191)
+speed = 200.0
+x = 200.0
+
+[node name="SpiderMain" parent="." unique_id=440499219 instance=ExtResource("3_itbha")]
+position = Vector2(2268, 171)
+Stationary = true
+
+[node name="BatMain" parent="." unique_id=1276709673 instance=ExtResource("4_odypp")]
+position = Vector2(1824, -55)
+x = 400.0
+
+[node name="Fish" parent="." unique_id=1033624582 instance=ExtResource("5_odypp")]
+position = Vector2(107, 129)
+
+[node name="SpiderMain2" parent="." unique_id=492222335 instance=ExtResource("3_itbha")]
+position = Vector2(2861, 170)
+speed = 200.0
+x = 500.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2107453606]
+
+[node name="Untitled15220261011160314" type="Sprite2D" parent="Area2D" unique_id=514316366]
+position = Vector2(4229, -126)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_hb1bi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=79617797]
+position = Vector2(4215, -19.5)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_o8y2f")
+
+[node name="Cat" parent="." unique_id=752942470 instance=ExtResource("8_d6un8")]
+position = Vector2(107, 130)
+
+[node name="Capybara" parent="." unique_id=1526808174 instance=ExtResource("9_jjw1q")]
+position = Vector2(114, 127)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

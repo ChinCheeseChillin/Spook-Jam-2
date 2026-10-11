@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var Attack_Hitbox: Area2D = $"Fish Texture/Attack Hitbox"
 @onready var Damage_Hitbox: Area2D = $"Damage Hitbox"
 @onready var Damage_Timer: Timer = $"Damage Timer"
+@onready var attack_animation: AnimatedSprite2D = $"Fish Texture/Attack Hitbox/CollisionShape2D/Attack Animation"
 
 
 
@@ -39,13 +40,14 @@ func _physics_process(delta: float) -> void:
 		Damage_Timer.start()
 	
 	
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and attack_animation.is_playing() == false:
 		print("attack")
+		attack_animation.play()
 		for body in Attack_Hitbox.get_overlapping_bodies():
 			print(body)
 			if body.has_method("TakeDamage"):
 				print("hurt")
-				body.TakeDamage(baseAttack)
+				body.TakeDamage(1)
 	
 	if Floating_Hitbox.get_overlapping_bodies() == []:
 		grounded = false
