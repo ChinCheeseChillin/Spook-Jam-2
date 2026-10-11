@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://d3m2oxce2hbbs"]
+
+[ext_resource type="Script" uid="uid://vth61xmkqg5b" path="res://Scripts/Bat Script.gd" id="1_5yugw"]
+[ext_resource type="Script" uid="uid://bx1mvu6ke4d53" path="res://Scripts/BatHitbox.gd" id="2_lylxy"]
+[ext_resource type="Texture2D" uid="uid://c8kxqqctiquto" path="res://Assets/Untitled136_20261010155732.png" id="3_lylxy"]
+[ext_resource type="Texture2D" uid="uid://df6qts0obr08n" path="res://Assets/Untitled136_20261010155738.png" id="4_lyu5a"]
+[ext_resource type="Texture2D" uid="uid://1y7pnxgdxe7j" path="res://Assets/Untitled136_20261010155742.png" id="5_puxrq"]
+[ext_resource type="Texture2D" uid="uid://cq7fssmcupi1j" path="res://Assets/Untitled136_20261010155751.png" id="6_laydv"]
+
+[sub_resource type="Curve2D" id="Curve2D_itaso"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0)
+}
+point_count = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8y2f"]
+size = Vector2(93.999985, 106.000015)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8y2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_lylxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lyu5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_puxrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_laydv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_puxrq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lyu5a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lylxy")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="BatMain" type="Node2D" unique_id=202635849 groups=["hurtable"]]
+script = ExtResource("1_5yugw")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=561461792]
+curve = SubResource("Curve2D_itaso")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=1618050157]
+rotation = -3.1415925
+progress = 349.84802
+rotates = false
+
+[node name="Bat" type="RigidBody2D" parent="Path2D/PathFollow2D" unique_id=1104463921]
+collision_layer = 16
+collision_mask = 17
+freeze = true
+freeze_mode = 1
+script = ExtResource("2_lylxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Path2D/PathFollow2D/Bat" unique_id=1662299824]
+position = Vector2(-2.9999964, 18)
+shape = SubResource("RectangleShape2D_o8y2f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D/PathFollow2D/Bat" unique_id=883170860]
+position = Vector2(-5.9999976, 16)
+rotation = 3.1415925
+scale = Vector2(0.09, 0.09)
+sprite_frames = SubResource("SpriteFrames_o8y2f")
+frame_progress = 0.060254987
+
+[connection signal="hurted" from="Path2D/PathFollow2D/Bat" to="." method="_on_bat_hurted"]

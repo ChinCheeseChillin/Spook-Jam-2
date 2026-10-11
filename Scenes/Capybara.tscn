@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://by1hfa0q0wgdy"]
+
+[ext_resource type="Texture2D" uid="uid://ds18exogh4wom" path="res://icon.svg" id="1_0b12l"]
+[ext_resource type="Script" uid="uid://dolpdjrwpjy6q" path="res://Scripts/capybara script.gd" id="1_by68u"]
+[ext_resource type="Texture2D" uid="uid://cv0jwnmhuijgf" path="res://Assets/Zombie_Capybara.png" id="2_by68u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8y2f"]
+size = Vector2(119, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgt1a"]
+atlas = ExtResource("2_by68u")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34ovy"]
+atlas = ExtResource("2_by68u")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evao0"]
+atlas = ExtResource("2_by68u")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1ylw"]
+atlas = ExtResource("2_by68u")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8y2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgt1a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34ovy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evao0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1ylw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d40b0"]
+size = Vector2(53.00007, 61.000015)
+
+[node name="Capybara" type="CharacterBody2D" unique_id=1526808174]
+script = ExtResource("1_by68u")
+
+[node name="Terrain Hitbox" type="CollisionShape2D" parent="." unique_id=2113469387]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_o8y2f")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1971971843]
+
+[node name="Capybara Texture" type="AnimatedSprite2D" parent="." unique_id=987892224]
+position = Vector2(4.7683716e-07, 4.7683716e-07)
+scale = Vector2(4, 3.863)
+sprite_frames = SubResource("SpriteFrames_o8y2f")
+
+[node name="Attack Hitbox" type="Area2D" parent="Capybara Texture" unique_id=1458406359]
+position = Vector2(-1.1920928e-07, -1.23437e-07)
+scale = Vector2(0.24999999, 0.25886616)
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Capybara Texture/Attack Hitbox" unique_id=1421970583]
+position = Vector2(87.49996, -0.5000008)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_d40b0")
+
+[node name="Icon" type="Sprite2D" parent="Capybara Texture/Attack Hitbox" unique_id=1406297549]
+position = Vector2(87.50001, -0.49999905)
+scale = Vector2(0.41406256, 0.4765625)
+texture = ExtResource("1_0b12l")
+
+[node name="Damage Hitbox" type="Area2D" parent="." unique_id=1310870296]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage Hitbox" unique_id=1168515753]
+shape = SubResource("RectangleShape2D_o8y2f")
+
+[node name="Damage Timer" type="Timer" parent="." unique_id=1107321820]
+one_shot = true

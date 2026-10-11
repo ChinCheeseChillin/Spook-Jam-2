@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://c2mt1n2j360ci"]
+
+[ext_resource type="Script" uid="uid://bvdk8oq6i3i1v" path="res://Scripts/cat script.gd" id="1_6rxiq"]
+[ext_resource type="Texture2D" uid="uid://gyaog3ri0nki" path="res://Assets/Skeleton_Kitty.png" id="2_6rxiq"]
+[ext_resource type="Texture2D" uid="uid://ds18exogh4wom" path="res://icon.svg" id="2_fv1sl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8y2f"]
+size = Vector2(103.49999, 85)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv1sl"]
+atlas = ExtResource("2_6rxiq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iij32"]
+atlas = ExtResource("2_6rxiq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0w12x"]
+atlas = ExtResource("2_6rxiq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24xn3"]
+atlas = ExtResource("2_6rxiq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46xjo"]
+atlas = ExtResource("2_6rxiq")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8y2f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv1sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iij32")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0w12x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24xn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46xjo")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d40b0"]
+size = Vector2(78, 85.5)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=752942470]
+script = ExtResource("1_6rxiq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=728007436]
+position = Vector2(0.5, -7.5)
+shape = SubResource("RectangleShape2D_o8y2f")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1879171108]
+
+[node name="Cat Texture" type="AnimatedSprite2D" parent="." unique_id=949119437]
+scale = Vector2(3.5, 3.5)
+sprite_frames = SubResource("SpriteFrames_o8y2f")
+
+[node name="Attack Hitbox" type="Area2D" parent="Cat Texture" unique_id=1626572619]
+scale = Vector2(0.28571427, 0.28571427)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cat Texture/Attack Hitbox" unique_id=681894747]
+position = Vector2(91.99999, -5.999999)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_d40b0")
+
+[node name="Damage Timer" type="Timer" parent="Cat Texture/Attack Hitbox" unique_id=1566272024]
+one_shot = true
+
+[node name="Icon" type="Sprite2D" parent="Cat Texture/Attack Hitbox" unique_id=355308116]
+position = Vector2(90, -7)
+scale = Vector2(0.65625006, 0.703125)
+texture = ExtResource("2_fv1sl")
+
+[node name="Damage Hitbox" type="Area2D" parent="." unique_id=1433780870]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Damage Hitbox" unique_id=198607376]
+position = Vector2(7.6293945e-06, -7.0000005)
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_o8y2f")

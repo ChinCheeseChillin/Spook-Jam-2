@@ -7,7 +7,7 @@
 size = Vector2(125, 127)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8y2f"]
-size = Vector2(125, 93)
+size = Vector2(125, 47)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1033624582]
 script = ExtResource("1_00kyb")
@@ -22,12 +22,8 @@ texture = ExtResource("1_boxf0")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1761776283]
 
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1831874435]
-target_position = Vector2(0, 156)
-collision_mask = 3
-
 [node name="Area2D" type="Area2D" parent="." unique_id=1571512710]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1755648612]
-position = Vector2(-1.5, 110.5)
+position = Vector2(-1.5, 87.5)
 shape = SubResource("RectangleShape2D_o8y2f")
